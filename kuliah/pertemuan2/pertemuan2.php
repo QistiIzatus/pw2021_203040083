@@ -3,7 +3,7 @@
 /*
 Qisti Izatussyabani
 203040083
-https://github.com/QistiIzatus/pw2021_203040050
+https://github.com/QistiIzatus/pw2021_203040083
 Pertemuan 2 
 Mempelajari mengenai sintaks PHP
 */
