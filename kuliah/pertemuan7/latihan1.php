@@ -7,23 +7,14 @@ Pertemuan 7
 Materi pertemuan 7 ini menjelaskan tentang Metode GET AND POST
 */
 ?>
-<?php
-// Variable Scope / lingkup variabel
-// Varibel lokal adalah variabel yang hanya untuk function itu saja
-// $x = 10;
-// function tampilX() {
-//     global $x; // Variabel global, mencari keluar
-//     echo $x;
-// }
-// tampilX();
-
-// Variabel Superglobals = variabel milik PHP yang bisa kita akses dimana pun kapanpun di halaman kita
-// Macam - macam variabel Superglobals:
-// $_GET, $_POST, $_REQUEST, $_SESSION, $_COOKIE, $_SERVER,  $_ENV
-// Ke-7 Variabel Superglobals adalah ARRAY Associative
-
+<?php 
+// SUPERGLOBALS
+// variable global milik php
+// merupakan Array Associative
 // $_GET
-// Metode Request GET adalah metode pengiriman data melalui URL dan data tersebut bisa dotangkap oleh Variabel Superglobals $_GET
+// var_dump($_GET);
+// bisa menambahkan melalui link URL
+// jika lebih dari satu variable tambahkan & 
 $mahasiswa = [
     [
         "nrp" => "203040083",
@@ -41,25 +32,29 @@ $mahasiswa = [
     ]
 ];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GET</title>
+    <style>
+        img {
+            max-width: 150px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Daftar Mahasiswa</h1>
 <ul>
-    <?php foreach( $mahasiswa as $mhs ) : ?>
-        <li> 
-        <a href="latihan2.php?nama=<?= $mhs["nama"]; ?>
-        &nrp=<?= $mhs["nrp"]; ?>&email=<?= $mhs["email"]; ?>
-        &jurusan=<?= $mhs["jurusan"]; ?>&gambar=<?= $mhs["gambar"]; ?>">
-        <?= $mhs["nama"]; ?></a>
-	</li>
-    <?php endforeach; ?>
+<h1>Daftar Mahasiswa</h1>
+<?php foreach( $mahasiswa as $mhs ) : ?>
+    <li>
+    <a href="latihan2.php?nama=<?= $mhs["nama"]?>&nrp=<?= $mhs["nrp"]; ?>&email=<?= $mhs["email"]; ?>&jurusan=<?= $mhs["jurusan"]; ?>&gambar=<?= $mhs["gambar"]; ?>"><?=  $mhs["nama"]; ?></a>
+    </li>
+<?php endforeach; ?> 
 </ul>
 
 </body>
 </html>
-</body>
-</html> 
