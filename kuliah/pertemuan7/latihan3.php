@@ -17,7 +17,7 @@ Materi pertemuan 7 ini menjelaskan tentang Metode GET AND POST
     <title>POST</title>
 </head>
 <body>
-    <?php if( isset($_POST["submit"]) ) : ?>
+    <?php if( isset($_POST["submit"]) > 0 ) : ?>
     <h1>Halo, Selamat Datang <?= $_POST["nama"]; ?></h1>
     <?php endif; ?>
 
