@@ -78,44 +78,5 @@ function ubah($data)
     return mysqli_affected_rows($conn);
 }
 
-function registrasi($data)
-{
-        $conn = koneksi();
-        $username = strtolower(stripcslashes($data["username"]));
-        $password = mysqli_real_escape_string($conn, $data["password"]);
-
-        //cek username sudah ada atau belum
-        $result = mysqli_query($conn, "SELECT username FROM user WHERE username = '$username' ");
-        if (mysqli_fetch_assoc($result)) {
-            echo "<script>
-                alert('username sudah digunakan');
-                </script>";
-            return false;
-        }
-
-        // enkripsi password 
-        $password = password_hash($password, PASSWORD_DEFAULT);
-
-        //tambah user baru
-        $query_tambah = "INSERT INTO user VALUES('', '$username', '$password')";
-        mysqli_query($conn, $query_tambah);
-
-        return mysqli_affected_rows($conn);
-}
-
-
-function cari($keyword) {
-    $conn = koneksi();
-
-    $query = "SELECT * FROM prakpw_novel_203040083 WHERE judul LIKE '%$keyword%' ";
-    $result = mysqli_query($conn, $query);
-    
-    $rows = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $rows[] = $row;
-    };
-
-    return $rows;
-}
 
 ?>
